@@ -78,8 +78,8 @@ export default function Home() {
           />
           <Spotlight />
 
-          <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-5 md:px-8 lg:grid-cols-12 lg:gap-8">
-            <div className="flex flex-col justify-center lg:col-span-7">
+          <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-5 md:px-8 lg:grid-cols-12 lg:gap-12">
+            <div className="flex flex-col lg:sticky lg:top-32 lg:col-span-4 lg:self-start lg:pt-6">
               <p className="reveal flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-sand/70">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold/60" />
@@ -88,10 +88,10 @@ export default function Home() {
                 Commissions open · {site.location}
               </p>
               <h1
-                className="reveal mt-8 font-serif text-[clamp(3.25rem,8.4vw,8rem)] leading-[0.92] tracking-[-0.02em] text-linen"
+                className="reveal mt-8 font-serif text-[clamp(3.25rem,8.4vw,5.5rem)] leading-[0.92] lg:text-[clamp(3rem,4.6vw,5.5rem)] tracking-[-0.02em] text-linen"
                 style={d(120)}
               >
-                Painting the <br className="hidden sm:block" />
+                Painting the 
                 quiet <em className="text-gilt pr-2">stories</em>
                 <br />
                 people carry.
@@ -120,8 +120,8 @@ export default function Home() {
               </div>
             </div>
 
-            <figure className="relative lg:col-span-5">
-              <div className="frame mx-auto w-full max-w-[22rem] lg:mr-0 xl:max-w-[24rem]">
+            <figure className="relative lg:col-span-8">
+              <div className="frame mx-auto w-full max-w-md lg:max-w-none">
                 <div className="frame-inner reveal-img" style={d(250)}>
                   <HeroVideo
                     src="/media/hero.mp4"
@@ -131,7 +131,7 @@ export default function Home() {
                 </div>
               </div>
               <figcaption
-                className="reveal mx-auto mt-5 flex w-full max-w-[22rem] items-baseline justify-between gap-4 text-sm lg:mr-0 xl:max-w-[24rem]"
+                className="reveal mx-auto mt-5 flex w-full max-w-md items-baseline justify-between gap-4 text-sm lg:max-w-none"
                 style={d(400)}
               >
                 <span>

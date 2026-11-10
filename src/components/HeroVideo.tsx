@@ -37,7 +37,7 @@ export function HeroVideo({ src, poster, label }: { src: string; poster: string;
         onPlay={() => setPaused(false)}
         onPause={() => setPaused(true)}
         aria-label={label}
-        className="block aspect-[9/16] w-full object-cover"
+        className="block aspect-[9/16] w-full object-cover object-[50%_80%] lg:aspect-[4/5]"
       />
       <button
         type="button"
