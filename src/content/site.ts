@@ -50,7 +50,7 @@ export const works: Work[] = [
     status: "Original",
     image: vesselUmber,
     alt: "Oil painting of a man in profile in a cream robe, balancing a clay pot on his head against a deep umber background.",
-    className: "md:col-span-5 md:row-span-2",
+    className: "md:col-span-5",
   },
   {
     slug: "shoreline",
@@ -60,7 +60,7 @@ export const works: Work[] = [
     status: "Original",
     image: shoreline,
     alt: "Oil painting of a man in linen standing in a sunlit alcove while a woman in a flowing cream gown sits at a window overlooking the sea.",
-    className: "md:col-span-7",
+    className: "md:col-span-6 md:col-start-7 md:mt-48",
   },
   {
     slug: "vessel-study",
@@ -70,7 +70,7 @@ export const works: Work[] = [
     status: "Original",
     image: vesselStudy,
     alt: "Oil study of a man in profile wearing a cream robe with a clay pot balanced on his head against a pale background.",
-    className: "md:col-span-4",
+    className: "md:col-span-4 md:col-start-2",
   },
   {
     slug: "doorway",
@@ -80,7 +80,7 @@ export const works: Work[] = [
     status: "In progress",
     image: studioDoorway,
     alt: "Painting in progress on an easel: a man in a pale suit stands in a dark doorway while a woman in a red dress sits beside it.",
-    className: "md:col-span-3",
+    className: "md:col-span-4 md:col-start-8 md:mt-40",
   },
 ];
 

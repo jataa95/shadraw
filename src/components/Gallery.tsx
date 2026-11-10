@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Work } from "@/content/site";
+import { toRoman } from "@/lib/roman";
 
 export function Gallery({ works }: { works: Work[] }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -32,40 +33,44 @@ export function Gallery({ works }: { works: Work[] }) {
 
   return (
     <>
-      <ul className="grid grid-cols-1 gap-5 md:auto-rows-[24rem] md:grid-cols-12">
+      <ul className="grid grid-cols-1 items-start gap-x-8 gap-y-20 md:grid-cols-12">
         {works.map((w, i) => (
-          <li
-            key={w.slug}
-            className={`reveal ${w.className ?? ""}`}
-            style={{ "--delay": `${(i % 3) * 90}ms` } as React.CSSProperties}
-          >
+          <li key={w.slug} className={w.className ?? ""}>
             <button
               type="button"
               onClick={() => openAt(i)}
-              className="group block h-full w-full text-left"
+              className="group block w-full text-left"
               aria-label={`View ${w.title}`}
             >
-              <div className="relative aspect-[4/5] overflow-hidden md:aspect-auto md:h-full rounded-2xl bg-parchment">
-                <Image
-                  src={w.image}
-                  alt={w.alt}
-                  placeholder="blur"
-                  fill
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-ink/0 opacity-90" />
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-linen">
-                  <div>
-                    <p className="font-serif text-2xl leading-tight md:text-3xl">{w.title}</p>
-                    <p className="mt-1 text-xs tracking-wide text-linen/75">
-                      {w.medium} · {w.year}
-                    </p>
-                  </div>
-                  <span className="shrink-0 rounded-full border border-linen/30 px-3 py-1 text-[11px] tracking-wide backdrop-blur-sm">
-                    {w.status}
-                  </span>
+              <div className="frame transition-transform duration-700 ease-out group-hover:-translate-y-1.5">
+                <div
+                  className="frame-inner reveal-img"
+                  style={{ "--delay": `${(i % 2) * 120}ms` } as React.CSSProperties}
+                >
+                  <Image
+                    src={w.image}
+                    alt={w.alt}
+                    placeholder="blur"
+                    sizes="(min-width: 768px) 45vw, 100vw"
+                    className="h-auto w-full transition-[filter] duration-700 group-hover:brightness-110"
+                  />
                 </div>
+              </div>
+              <div className="reveal mt-6 flex items-start justify-between gap-6 border-t border-gold/20 pt-4">
+                <div>
+                  <p className="text-[11px] uppercase tracking-[0.28em] text-gold/80">
+                    Plate {toRoman(i + 1)}
+                  </p>
+                  <p className="mt-2 font-serif text-3xl leading-tight text-linen md:text-4xl">
+                    <span className="italic">{w.title}</span>
+                  </p>
+                  <p className="mt-1 text-sm text-sand/60">
+                    {w.medium}, {w.year}
+                  </p>
+                </div>
+                <span className="mt-1 shrink-0 text-[11px] uppercase tracking-[0.2em] text-sand/50 transition-colors group-hover:text-gold">
+                  {w.status} ↗
+                </span>
               </div>
             </button>
           </li>
@@ -76,7 +81,7 @@ export function Gallery({ works }: { works: Work[] }) {
         ref={dialogRef}
         onClose={() => setIndex(null)}
         onClick={(e) => e.target === dialogRef.current && close()}
-        className="m-0 h-dvh max-h-none w-screen max-w-none bg-ink p-0 text-linen backdrop:bg-ink/80"
+        className="m-0 h-dvh max-h-none w-screen max-w-none bg-bark p-0 text-linen backdrop:bg-bark/90"
         aria-label={active ? active.title : "Artwork viewer"}
       >
         {active && (

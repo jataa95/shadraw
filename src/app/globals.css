@@ -1,22 +1,25 @@
 @import "tailwindcss";
 
-/* Shadraw palette — shades of brown, from linen to espresso */
+/* Shadraw palette — a studio lit by one warm lamp. Deep browns, gilt, cream. */
 @theme {
-  --color-linen: #f6ede2;
-  --color-parchment: #eddfcd;
-  --color-sand: #dcc6aa;
-  --color-clay: #c19a6b;
-  --color-caramel: #a0673f;
-  --color-sienna: #8a4b2a;
-  --color-umber: #5c3a22;
-  --color-oxblood: #4a1a12;
-  --color-espresso: #2a1c14;
-  --color-ink: #1b120d;
+  --color-bark: #170f0a;
+  --color-espresso: #21150e;
+  --color-umber: #2f1f15;
+  --color-walnut: #3f2a1c;
+  --color-tobacco: #5a3b25;
+  --color-sienna: #8a5230;
+  --color-caramel: #a8713f;
+  --color-gold: #c9a26b;
+  --color-sand: #dcc6a6;
+  --color-linen: #efe3d1;
+  --color-oxblood: #3d1510;
 
   --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
 
-  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee: marquee 55s linear infinite;
+  --animate-curtain: curtain 1.5s cubic-bezier(0.7, 0, 0.2, 1) forwards;
+  --animate-curtain-word: curtain-word 1.5s ease forwards;
 
   @keyframes marquee {
     from {
@@ -26,51 +29,121 @@
       transform: translateX(-50%);
     }
   }
+  @keyframes curtain {
+    0%,
+    55% {
+      clip-path: inset(0 0 0 0);
+    }
+    100% {
+      clip-path: inset(0 0 100% 0);
+      visibility: hidden;
+    }
+  }
+  @keyframes curtain-word {
+    0% {
+      opacity: 0;
+      letter-spacing: 0.3em;
+    }
+    35%,
+    55% {
+      opacity: 1;
+      letter-spacing: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  background: var(--color-bark);
 }
 
 body {
-  background: var(--color-linen);
-  color: var(--color-espresso);
+  background: var(--color-bark);
+  color: var(--color-linen);
   font-family: var(--font-sans);
 }
 
 ::selection {
-  background: var(--color-caramel);
-  color: var(--color-linen);
+  background: var(--color-gold);
+  color: var(--color-bark);
 }
 
-/* Subtle paper grain over the whole page */
+/* Film/canvas grain over everything */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 60;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* A gilt hairline frame with a deep walnut mat, used for paintings */
+.frame {
+  position: relative;
+  padding: clamp(10px, 1.6vw, 22px);
+  background: linear-gradient(145deg, #3a2618, #24170f 60%, #2e1e14);
+  box-shadow:
+    inset 0 0 0 1px rgba(201, 162, 107, 0.55),
+    inset 0 0 0 6px #1d130d,
+    inset 0 0 0 7px rgba(201, 162, 107, 0.25),
+    0 50px 90px -40px rgba(0, 0, 0, 0.9),
+    0 20px 40px -20px rgba(0, 0, 0, 0.6);
+}
+.frame > .frame-inner {
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Gilt text */
+.text-gilt {
+  background: linear-gradient(100deg, #a8713f 0%, #e6c896 45%, #b8874f 70%, #e2c08a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(32px);
   transition:
-    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
-    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+    opacity 1.1s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1);
   transition-delay: var(--delay, 0ms);
 }
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* Image curtain wipe — the wrapper stays unclipped so it can be observed */
+.reveal-img > * {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.4s cubic-bezier(0.7, 0, 0.2, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal-img img {
+  transform: scale(1.15);
+  transition: transform 2.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal-img.is-visible > * {
+  clip-path: inset(0 0 0 0);
+}
+.reveal-img.is-visible img {
+  transform: scale(1);
 }
 
 details > summary {
@@ -87,12 +160,18 @@ details[open] .faq-icon {
   html {
     scroll-behavior: auto;
   }
-  .reveal {
+  .reveal,
+  .reveal-img > *,
+  .reveal-img img {
     opacity: 1;
     transform: none;
+    clip-path: none;
     transition: none;
   }
   .animate-marquee {
     animation: none;
+  }
+  .intro-curtain {
+    display: none;
   }
 }

@@ -27,18 +27,18 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled || open
-          ? "bg-linen/85 shadow-[0_1px_0_rgba(42,28,20,0.08)] backdrop-blur-md"
+          ? "bg-bark/80 shadow-[0_1px_0_rgba(201,162,107,0.15)] backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded-full focus:bg-espresso focus:px-4 focus:py-2 focus:text-linen"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded-full focus:bg-gold focus:px-4 focus:py-2 focus:text-bark"
       >
         Skip to content
       </a>
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 md:px-8">
-        <a href="#top" aria-label="Shadraw — home" onClick={() => setOpen(false)}>
+        <a href="#top" className="text-linen" aria-label="Shadraw — home" onClick={() => setOpen(false)}>
           <Logo />
         </a>
 
@@ -48,7 +48,7 @@ export function Header() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="text-espresso/70 transition-colors hover:text-espresso"
+                  className="text-sand/70 transition-colors hover:text-gold"
                 >
                   {item.label}
                 </a>
@@ -60,13 +60,13 @@ export function Header() {
         <div className="flex items-center gap-3">
           <a
             href="#contact"
-            className="hidden rounded-full bg-espresso px-5 py-2.5 text-sm text-linen transition-colors hover:bg-umber sm:inline-flex"
+            className="hidden rounded-full border border-gold/50 px-5 py-2.5 text-sm text-gold transition-colors hover:bg-gold hover:text-bark sm:inline-flex"
           >
             Commission a piece
           </a>
           <button
             type="button"
-            className="inline-flex h-10 items-center gap-2 rounded-full border border-espresso/15 px-4 text-sm md:hidden"
+            className="inline-flex h-10 items-center gap-2 rounded-full border border-gold/30 px-4 text-sm text-sand md:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
@@ -79,7 +79,7 @@ export function Header() {
       <div
         id="mobile-menu"
         hidden={!open}
-        className="h-[calc(100dvh-4.5rem)] border-t border-espresso/10 bg-linen px-5 pt-6 md:hidden"
+        className="h-[calc(100dvh-4.5rem)] border-t border-gold/15 bg-bark px-5 pt-6 md:hidden"
       >
         <ul className="space-y-1">
           {nav.map((item, i) => (
@@ -87,9 +87,9 @@ export function Header() {
               <a
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="flex items-baseline gap-4 border-b border-espresso/10 py-4 font-serif text-4xl"
+                className="flex items-baseline gap-4 border-b border-gold/15 py-4 font-serif text-4xl text-linen"
               >
-                <span className="font-sans text-xs text-caramel">0{i + 1}</span>
+                <span className="font-sans text-xs text-gold">0{i + 1}</span>
                 {item.label}
               </a>
             </li>
@@ -98,7 +98,7 @@ export function Header() {
         <a
           href="#contact"
           onClick={() => setOpen(false)}
-          className="mt-8 inline-flex rounded-full bg-espresso px-6 py-3 text-linen"
+          className="mt-8 inline-flex rounded-full bg-gold px-6 py-3 text-bark"
         >
           Commission a piece
         </a>

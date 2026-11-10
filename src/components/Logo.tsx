@@ -10,7 +10,7 @@ export function Logo({ className = "" }: { className?: string }) {
           strokeWidth="1.8"
           strokeLinecap="round"
         />
-        <circle cx="22.5" cy="9.2" r="1.4" fill="#a0673f" />
+        <circle cx="22.5" cy="9.2" r="1.4" fill="#c9a26b" />
       </svg>
       <span className="font-serif text-2xl leading-none tracking-tight">shadraw</span>
     </span>

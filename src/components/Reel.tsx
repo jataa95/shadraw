@@ -33,7 +33,7 @@ export function Reel({ src, poster, quote, label }: Props) {
   };
 
   return (
-    <figure className="group relative overflow-hidden rounded-2xl bg-umber">
+    <figure className="group relative overflow-hidden bg-umber">
       <video
         ref={ref}
         src={src}
@@ -47,15 +47,15 @@ export function Reel({ src, poster, quote, label }: Props) {
         className="aspect-[9/16] w-full object-cover"
         aria-label={`Studio clip: ${label}`}
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-ink/10" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bark/85 via-transparent to-bark/20" />
       <figcaption className="absolute inset-x-0 bottom-0 p-5 text-linen">
-        <p className="text-[11px] uppercase tracking-[0.2em] text-sand">{label}</p>
+        <p className="text-[11px] uppercase tracking-[0.25em] text-gold">{label}</p>
         <p className="mt-2 font-serif text-2xl leading-snug italic">“{quote}”</p>
       </figcaption>
       <button
         type="button"
         onClick={toggle}
-        className="absolute right-4 top-4 rounded-full bg-ink/40 px-3 py-1.5 text-xs text-linen backdrop-blur transition-opacity md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100"
+        className="absolute right-4 top-4 rounded-full bg-bark/50 px-3 py-1.5 text-xs text-linen backdrop-blur transition-opacity md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100"
       >
         {paused ? "Play" : "Pause"}
       </button>

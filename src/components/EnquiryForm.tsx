@@ -4,7 +4,7 @@ import { useState } from "react";
 import { site } from "@/content/site";
 
 const field =
-  "w-full rounded-xl border border-linen/15 bg-linen/5 px-4 py-3 text-linen placeholder:text-linen/40 outline-none transition focus:border-clay focus:bg-linen/10";
+  "w-full border-0 border-b border-gold/30 bg-transparent px-0 py-3 text-lg text-linen placeholder:text-sand/35 outline-none transition focus:border-gold";
 
 /**
  * Builds an email to the studio from the form fields and opens the visitor's
@@ -32,12 +32,12 @@ export function EnquiryForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4 sm:grid-cols-2">
-      <label className="grid gap-2 text-sm text-linen/70">
+    <form onSubmit={onSubmit} className="grid gap-x-8 gap-y-8 sm:grid-cols-2">
+      <label className="grid gap-2 text-[11px] uppercase tracking-[0.22em] text-sand/60">
         Name
         <input name="name" required autoComplete="name" className={field} placeholder="Your name" />
       </label>
-      <label className="grid gap-2 text-sm text-linen/70">
+      <label className="grid gap-2 text-[11px] uppercase tracking-[0.22em] text-sand/60">
         Email
         <input
           name="email"
@@ -48,20 +48,20 @@ export function EnquiryForm() {
           placeholder="you@example.com"
         />
       </label>
-      <label className="grid gap-2 text-sm text-linen/70">
+      <label className="grid gap-2 text-[11px] uppercase tracking-[0.22em] text-sand/60">
         Commission
         <select name="type" className={field} defaultValue="Oil Portrait">
-          <option className="text-espresso">Pencil Portrait</option>
-          <option className="text-espresso">Oil Portrait</option>
-          <option className="text-espresso">Figurative Scene</option>
-          <option className="text-espresso">Original artwork</option>
+          <option className="bg-espresso text-linen">Pencil Portrait</option>
+          <option className="bg-espresso text-linen">Oil Portrait</option>
+          <option className="bg-espresso text-linen">Figurative Scene</option>
+          <option className="bg-espresso text-linen">Original artwork</option>
         </select>
       </label>
-      <label className="grid gap-2 text-sm text-linen/70">
+      <label className="grid gap-2 text-[11px] uppercase tracking-[0.22em] text-sand/60">
         Size / format
         <input name="size" className={field} placeholder="e.g. 50 × 70 cm, or not sure" />
       </label>
-      <label className="grid gap-2 text-sm text-linen/70 sm:col-span-2">
+      <label className="grid gap-2 text-[11px] uppercase tracking-[0.22em] text-sand/60 sm:col-span-2">
         Tell me the story
         <textarea
           name="message"
@@ -74,11 +74,11 @@ export function EnquiryForm() {
       <div className="flex flex-wrap items-center gap-4 sm:col-span-2">
         <button
           type="submit"
-          className="rounded-full bg-sand px-6 py-3 text-espresso transition-colors hover:bg-linen"
+          className="rounded-full bg-gold px-7 py-3.5 text-bark transition-colors hover:bg-sand"
         >
           Send enquiry
         </button>
-        <p className="text-sm text-linen/60" aria-live="polite">
+        <p className="text-sm text-sand/60" aria-live="polite">
           {sent
             ? "Your email app should open with the message ready to send."
             : `Or write directly to ${site.email}`}
