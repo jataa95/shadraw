@@ -120,7 +120,7 @@ export default function Home() {
               </div>
             </div>
 
-            <figure className="relative lg:col-span-6">
+            <figure className="relative order-first lg:order-none lg:col-span-6">
               <div className="frame mx-auto w-full max-w-md lg:max-w-none">
                 <div className="frame-inner reveal-img" style={d(250)}>
                   <HeroVideo
