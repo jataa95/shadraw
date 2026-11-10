@@ -79,7 +79,7 @@ export default function Home() {
           <Spotlight />
 
           <div className="relative z-10 mx-auto grid max-w-7xl gap-16 px-5 md:px-8 lg:grid-cols-12 lg:gap-12">
-            <div className="flex flex-col lg:sticky lg:top-32 lg:col-span-4 lg:self-start lg:pt-6">
+            <div className="flex flex-col lg:sticky lg:top-32 lg:col-span-6 lg:self-start lg:pt-6">
               <p className="reveal flex items-center gap-3 text-[11px] uppercase tracking-[0.3em] text-sand/70">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold/60" />
@@ -88,7 +88,7 @@ export default function Home() {
                 Commissions open · {site.location}
               </p>
               <h1
-                className="reveal mt-8 font-serif text-[clamp(3.25rem,8.4vw,5.5rem)] leading-[0.92] lg:text-[clamp(3rem,4.6vw,5.5rem)] tracking-[-0.02em] text-linen"
+                className="reveal mt-8 font-serif text-[clamp(3.25rem,8.4vw,5.5rem)] leading-[0.92] lg:text-[clamp(3.25rem,5.6vw,6.5rem)] tracking-[-0.02em] text-linen"
                 style={d(120)}
               >
                 Painting the 
@@ -120,7 +120,7 @@ export default function Home() {
               </div>
             </div>
 
-            <figure className="relative lg:col-span-8">
+            <figure className="relative lg:col-span-6">
               <div className="frame mx-auto w-full max-w-md lg:max-w-none">
                 <div className="frame-inner reveal-img" style={d(250)}>
                   <HeroVideo
