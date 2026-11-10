@@ -130,12 +130,6 @@ export const reels = [
     label: "Underpainting",
   },
   {
-    src: "/media/reveal.mp4",
-    poster: "/media/reveal-poster.jpg",
-    quote: "From first line to final reveal.",
-    label: "Sketch to finish",
-  },
-  {
     src: "/media/story.mp4",
     poster: "/media/story-poster.jpg",
     quote: "I wonder what story you see in them.",

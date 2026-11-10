@@ -6,8 +6,8 @@ import { Reel } from "@/components/Reel";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { RevealObserver } from "@/components/RevealObserver";
 import { Spotlight } from "@/components/Spotlight";
+import { HeroVideo } from "@/components/HeroVideo";
 import { faq, nav, offers, process, quotes, reels, site, works } from "@/content/site";
-import vesselUmber from "@/assets/vessel-umber.jpg";
 
 type Delay = React.CSSProperties;
 const d = (ms: number) => ({ "--delay": `${ms}ms` }) as Delay;
@@ -121,25 +121,24 @@ export default function Home() {
             </div>
 
             <figure className="relative lg:col-span-5">
-              <div className="frame mx-auto max-w-md lg:max-w-none">
+              <div className="frame mx-auto w-full max-w-[22rem] lg:mr-0 xl:max-w-[24rem]">
                 <div className="frame-inner reveal-img" style={d(250)}>
-                  <Image
-                    src={vesselUmber}
-                    alt="Oil painting of a man in profile balancing a clay pot on his head, against a warm umber background."
-                    placeholder="blur"
-                    loading="eager"
-                    fetchPriority="high"
-                    sizes="(min-width: 1024px) 38vw, 90vw"
-                    className="h-auto w-full"
+                  <HeroVideo
+                    src="/media/hero.mp4"
+                    poster="/media/hero-poster.jpg"
+                    label="Studio film: a portrait of a woman in a flowing gown, from pencil sketch to finished oil painting."
                   />
                 </div>
               </div>
-              <figcaption className="reveal mx-auto mt-5 flex max-w-md items-baseline justify-between gap-4 text-sm lg:max-w-none" style={d(400)}>
+              <figcaption
+                className="reveal mx-auto mt-5 flex w-full max-w-[22rem] items-baseline justify-between gap-4 text-sm lg:mr-0 xl:max-w-[24rem]"
+                style={d(400)}
+              >
                 <span>
-                  <span className="text-[11px] uppercase tracking-[0.28em] text-gold/80">Featured</span>
-                  <span className="ml-3 font-serif text-xl italic text-linen">Vessel, in Umber</span>
+                  <span className="text-[11px] uppercase tracking-[0.28em] text-gold/80">Studio film</span>
+                  <span className="ml-3 font-serif text-xl italic text-linen">Sketch to finish</span>
                 </span>
-                <span className="text-sand/50">Oil on board</span>
+                <span className="text-sand/50">Verona</span>
               </figcaption>
             </figure>
           </div>
@@ -272,11 +271,11 @@ export default function Home() {
                 reveal at the end.
               </p>
             </div>
-            <div className="grid items-start gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mx-auto grid max-w-4xl items-start gap-8 sm:grid-cols-2 lg:gap-12">
               {reels.map((r, i) => (
                 <div
                   key={r.src}
-                  className={`reveal border border-gold/25 p-2 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.8)] ${i === 1 ? "lg:mt-24" : ""}`}
+                  className={`reveal border border-gold/25 p-2 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.8)] ${i === 1 ? "sm:mt-24" : ""}`}
                   style={d(i * 120)}
                 >
                   <Reel {...r} />
